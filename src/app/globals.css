@@ -3,13 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --primary-beaver: #9e7f66;
+  --primary-cod-gray: #111111;
+  --secondary-mirage: #17192b;
+  --secondary-ebony-clay: #242b37;
+  --secondary-shuttle-gray: #5c6779;
+  --font-league-spartan: var(--font-league-spartan);
 }
 
 @media (prefers-color-scheme: dark) {
