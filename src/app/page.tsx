@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className={"font-league-spartan"}>
-      <header className={"grid min-h-[892px] grid-cols-[400px_1fr]"}>
+    <div className={"font-league-spartan relative"}>
+      <header className={"h-[892px] w-full bg-[url('/images/homepage/hero-bg-desktop.jpg')] bg-cover bg-no-repeat"}>
         <div className={"border-white pt-[65px] pl-[165px]"}>
           <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
           <div className={"absolute w-[515px] pt-[153px]"}>
@@ -15,22 +15,21 @@ export default function Home() {
             </button>
           </div>
         </div>
-
-        <div className={"min-h-full"}>
-          <img src={"/images/homepage/hero-bg-desktop@2x.jpg"} className={"object-fill"} alt="Hero" />
-        </div>
       </header>
+      <section className={"flex items-center gap-x-[125px] bg-white px-[165px]"}>
+        <img src={"/images/homepage/enjoyable-place-desktop.jpg"} className={"relative bottom-[70px] h-[720px] w-[540px]"} alt="Enjoyable place" />
+        <div className={"w-[445px]"}>
+          <h2 className={"text-[48px] leading-[48px] font-bold tracking-[-0.5px] text-[#242B37]"}>Enjoyable place for all the family</h2>
+          <p className={"pt-[27px] text-[20px] leading-[30px] font-normal text-[#242B37]"}>Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal.</p>
+        </div>
 
-      <section>
-        <h2>Enjoyable place for all the family</h2>
-        <p>Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal.</p>
+        <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute left-0"} alt="Pattern" />
       </section>
 
       <section>
         <h2>The most locally sourced food</h2>
         <p>All our ingredients come directly from our farm or local fishery. So you can be sure that you’re eating the freshest, most sustainable food.</p>
       </section>
-
       <section>
         <div>
           <h2>A few highlights from our menu</h2>
@@ -38,7 +37,6 @@ export default function Home() {
         </div>
         <div>{/*Menu Stuff*/}</div>
       </section>
-
       <section>
         <div>
           <h1>Family Gathering</h1>
@@ -48,7 +46,6 @@ export default function Home() {
           </button>
         </div>
       </section>
-
       <section>
         <h3>Ready to make a reservation?</h3>
         <button>
