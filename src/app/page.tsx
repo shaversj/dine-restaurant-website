@@ -26,9 +26,14 @@ export default function Home() {
         <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute left-0"} alt="Pattern" />
       </section>
 
-      <section>
-        <h2>The most locally sourced food</h2>
-        <p>All our ingredients come directly from our farm or local fishery. So you can be sure that you’re eating the freshest, most sustainable food.</p>
+      <section className={"relative flex items-center gap-x-[125px] bg-white px-[165px]"}>
+        <img src={"/images/patterns/pattern-curve-top-left.svg"} className={"absolute right-0 bottom-0"} alt="Pattern" />
+
+        <div className={"w-[445px]"}>
+          <h2 className={"text-[48px] leading-[48px] font-bold tracking-[-0.5px] text-[#242B37]"}>The most locally sourced food</h2>
+          <p className={"pt-[27px] text-[20px] leading-[30px] font-normal text-[#242B37]"}>All our ingredients come directly from our farm or local fishery. So you can be sure that you’re eating the freshest, most sustainable food.</p>
+        </div>
+        <img src={"/images/homepage/locally-sourced-desktop.jpg"} className={"relative top-[70px]"} alt={"Enjoyable"} />
       </section>
       <section>
         <div>
