@@ -35,14 +35,65 @@ export default function Home() {
         </div>
         <img src={"/images/homepage/locally-sourced-desktop.jpg"} className={"relative top-[70px]"} alt={"Enjoyable"} />
       </section>
-      <section>
-        <div>
-          <h2>A few highlights from our menu</h2>
-          <p>We cater for all dietary requirements, but here’s a glimpse at some of our diner’s favourites. Our menu is revamped every season.</p>
+
+      <section className={"px-[125px] pt-[200px] pb-[120px]"}>
+        <svg className={"inline-flex"} width="71" height="7" viewBox="0 0 71 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="3" width="56" height="1" fill="#9E7F66" />
+          <circle cx="3.5" cy="3.5" r="3" stroke="#9E7F66" />
+        </svg>
+
+        <div className={"flex items-start gap-x-[165px] pt-[55px]"}>
+          <div className={"w-[445px]"}>
+            <h2 className={"text-heading-lg text-white"}>A few highlights from our menu</h2>
+            <p className={"text-body-primary pt-[27px] text-white"}>We cater for all dietary requirements, but here’s a glimpse at some of our diner’s favourites. Our menu is revamped every season.</p>
+          </div>
+
+          {/*Menu Stuff*/}
+          <div>
+            <div className={"flex gap-x-[62px]"}>
+              <div className={"flex"}>
+                <img src={"/images/homepage/salmon-desktop-tablet.jpg"} className={""} alt="Salmon" />
+                <div className={"mt-4 h-[1px] w-8 bg-[#9E7F66]"} />
+              </div>
+
+              <div className={"mt-2 w-[350px]"}>
+                <h3 className={"text-heading-md"}>Seared Salmon Fillet</h3>
+                <p className={"text-body-secondary pt-1.5"}>Our locally sourced salmon served with a refreshing buckwheat summer salad.</p>
+              </div>
+            </div>
+
+            <div className={"my-[24px] h-[1px] bg-white opacity-15"}></div>
+
+            <div className={"flex gap-x-[62px]"}>
+              <div className={"flex"}>
+                <img src={"/images/homepage/beef-desktop-tablet.jpg"} alt="Beef" />
+                <div className={"mt-4 h-[1px] w-8 bg-[#9E7F66]"} />
+              </div>
+
+              <div className={"mt-2 w-[350px]"}>
+                <h3 className={"text-heading-md"}>Rosemary Filet Mignon</h3>
+                <p className={"text-body-secondary pt-1.5"}>Our prime beef served to your taste with a delicious choice of seasonal sides.</p>
+              </div>
+            </div>
+
+            <div className={"my-[24px] h-[1px] bg-white opacity-15"}></div>
+
+            <div className={"flex gap-x-[62px]"}>
+              <div className={"flex"}>
+                <img src={"/images/homepage/chocolate-desktop-tablet.jpg"} alt="Choclate" />
+                <div className={"mt-4 h-[1px] w-8 bg-[#9E7F66]"} />
+              </div>
+
+              <div className={"mt-2 w-[350px]"}>
+                <h3 className={"text-heading-md"}>Summer Fruit Chocolate Mousse</h3>
+                <p className={"text-body-secondary pt-1.5"}>Creamy mousse combined with summer fruits and dark chocolate shavings.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>{/*Menu Stuff*/}</div>
       </section>
-      <section>
+
+      <section className={"bg-white"}>
         <div>
           <h1>Family Gathering</h1>
           <p> We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.</p>

@@ -25,6 +25,22 @@
   }
 }
 
+.text-heading-lg {
+  @apply text-[48px] leading-[48px] font-bold tracking-[-0.5px];
+}
+
+.text-heading-md {
+  @apply text-[20px] leading-[24px] font-bold tracking-[-0.25px];
+}
+
+.text-body-primary {
+  @apply text-[20px] leading-[30px];
+}
+
+.text-body-secondary {
+  @apply text-[16px] leading-[26px];
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
