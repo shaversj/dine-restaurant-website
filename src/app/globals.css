@@ -33,6 +33,10 @@
   @apply text-[20px] leading-[24px] font-bold tracking-[-0.25px];
 }
 
+.text-heading-sm {
+  @apply text-[17px] leading-[28px] font-semibold tracking-[2.5px];
+}
+
 .text-body-primary {
   @apply text-[20px] leading-[30px];
 }
@@ -40,6 +44,16 @@
 .text-body-secondary {
   @apply text-[16px] leading-[26px];
 }
+
+.button-primary {
+  @apply w-[245px] h-[64px]
+}
+
+.text-button-primary {
+  @apply text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase;
+}
+
+
 
 body {
   background: var(--background);

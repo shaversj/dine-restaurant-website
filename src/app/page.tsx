@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [imageIndex, setImageIndex] = useState(0);
+  const images = ["/images/homepage/family-gathering-desktop.jpg", "/images/homepage/special-events-desktop.jpg", "/images/homepage/social-events-desktop.jpg"];
   return (
     <div className={"font-league-spartan relative"}>
       <header className={"h-[892px] w-full bg-[url('/images/homepage/hero-bg-desktop.jpg')] bg-cover bg-no-repeat"}>
@@ -94,14 +99,37 @@ export default function Home() {
       </section>
 
       <section className={"bg-white"}>
-        <div>
-          <h1>Family Gathering</h1>
-          <p> We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.</p>
-          <button>
-            <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase"}>Book a table</span>
-          </button>
+        <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute z-10 translate-x-[-350px]"} alt="Pattern" />
+        <img src={"/images/patterns/pattern-lines.svg"} alt={"Lines"} className={"absolute z-30 translate-x-[125px] translate-y-[122px]"} />
+        <div className={"flex items-center gap-x-[125px] px-[165px] pt-[160px] pb-[160px]"}>
+          <img src={images[imageIndex]} alt={"Family Gathering"} className={"z-20"} />
+          <div className={"w-[445px]"}>
+            <h2 className={"text-heading-lg text-black"}>Family Gathering</h2>
+            <p className={"text-body-primary pt-[19px] text-black"}> We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.</p>
+            <button className={"button-primary mt-[60px] bg-black"}>
+              <span className={"text-button-primary"}>Book a table</span>
+            </button>
+
+            <div className={"-ml-[125px] flex pt-[79px]"}>
+              <ul className={"list-none"}>
+                <li onClick={() => setImageIndex(0)} className={"text-heading-sm group flex items-center gap-x-8"}>
+                  <div className={"hidden h-[1px] w-[95px] bg-[#9E7F66] group-hover:block"} />
+                  <span className={"ml-[127px] text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>Family Gathering</span>
+                </li>
+                <li onClick={() => setImageIndex(1)} className={"text-heading-sm group flex items-center gap-x-8"}>
+                  <div className={"hidden h-[1px] w-[95px] bg-[#9E7F66] group-hover:block"} />
+                  <span className={"ml-[127px] text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>Special Events</span>
+                </li>
+                <li onClick={() => setImageIndex(2)} className={"text-heading-sm group flex items-center gap-x-8"}>
+                  <div className={"hidden h-[1px] w-[95px] bg-[#9E7F66] group-hover:block"} />
+                  <span className={"ml-[127px] text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>Social Events</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
+
       <section>
         <h3>Ready to make a reservation?</h3>
         <button>
