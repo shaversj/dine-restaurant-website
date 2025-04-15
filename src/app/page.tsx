@@ -21,19 +21,18 @@ export default function Home() {
           </div>
         </div>
       </header>
+
       <section className={"flex items-center gap-x-[125px] bg-white px-[165px]"}>
         <img src={"/images/homepage/enjoyable-place-desktop.jpg"} className={"relative bottom-[70px] h-[720px] w-[540px]"} alt="Enjoyable place" />
         <div className={"w-[445px]"}>
           <h2 className={"text-[48px] leading-[48px] font-bold tracking-[-0.5px] text-[#242B37]"}>Enjoyable place for all the family</h2>
           <p className={"pt-[27px] text-[20px] leading-[30px] font-normal text-[#242B37]"}>Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal.</p>
         </div>
-
         <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute left-0"} alt="Pattern" />
       </section>
 
       <section className={"relative flex items-center gap-x-[125px] bg-white px-[165px]"}>
         <img src={"/images/patterns/pattern-curve-top-left.svg"} className={"absolute right-0 bottom-0"} alt="Pattern" />
-
         <div className={"w-[445px]"}>
           <h2 className={"text-[48px] leading-[48px] font-bold tracking-[-0.5px] text-[#242B37]"}>The most locally sourced food</h2>
           <p className={"pt-[27px] text-[20px] leading-[30px] font-normal text-[#242B37]"}>All our ingredients come directly from our farm or local fishery. So you can be sure that you’re eating the freshest, most sustainable food.</p>
@@ -130,13 +129,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <h3>Ready to make a reservation?</h3>
-        <button>
-          <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase"}>Book a table</span>
+      <section className={"flex h-[240px] items-center gap-x-[250px] bg-[url('/images/homepage/ready-bg-desktop.jpg')] bg-cover bg-no-repeat px-[165px]"}>
+        <h3 className={"text-heading-lg text-white"}>Ready to make a reservation?</h3>
+        <button className={"button-primary ml-auto border border-white"}>
+          <span className={"text-button-primary"}>Book a table</span>
         </button>
       </section>
-      <footer></footer>
+
+      <footer className={"text-footer h-[240px] px-[165px]"}>
+        <div className={"flex items-start pt-20"}>
+          <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
+          <div className={"ml-auto flex w-[814px]"}>
+            <div>
+              <p>Marthwaite, Sedbergh</p>
+              <p>Cumbria</p>
+              <a href={"tel:+00441234567"}>+00 44 1234 4567</a>
+            </div>
+            <div className={"ml-auto w-[446px]"}>
+              <p>Open Times</p>
+              <p>MON - FRI: 09:00 AM - 10:00 PM</p>
+              <p>SAT - SUN: 09:00 AM - 11:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -53,6 +53,9 @@
   @apply text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase;
 }
 
+.text-footer {
+  @apply text-[14px] leading-[28px] tracking-[2px] text-white uppercase
+}
 
 
 body {
