@@ -25,6 +25,10 @@
   }
 }
 
+.text-heading-xl {
+  @apply text-[80px] leading-[80px] font-light tracking-[-1px];
+}
+
 .text-heading-lg {
   @apply text-[48px] leading-[48px] font-bold tracking-[-0.5px];
 }
