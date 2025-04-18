@@ -3,9 +3,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
+
+const options = ["AM", "PM"];
 
 export default function BookingPage() {
   const [numOfPeople, setNumOfPeople] = useState(4);
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div className={"font-league-spartan"}>
       <header className={"h-[600px] bg-[url('/images/booking/hero-bg-desktop.jpg')] bg-cover bg-no-repeat"}>
@@ -33,7 +37,23 @@ export default function BookingPage() {
                 <div className={"flex gap-x-4 pl-[65px]"}>
                   <input type="text" placeholder={"HH"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />
                   <input type="text" placeholder={"MM"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />
-                  <input type="text" placeholder={"AM/PM"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />
+
+                  <div className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4"}>
+                    <Listbox value={selected} onChange={setSelected}>
+                      <ListboxButton className={"group flex items-center gap-x-[15px] text-[20px] leading-7 text-[#111111] outline-none"}>
+                        {selected}
+                        <img src={"/images/icons/icon-arrow.svg"} alt={"Arrow Down"} className={"group-data-[open]:rotate-180 group-data-[open]:pt-2"} />
+                      </ListboxButton>
+                      <ListboxOptions anchor={"bottom"} className={"z-30 h-[103px] w-[106px] space-y-4 bg-white pt-[18px] pr-[30px] pl-[16px] shadow-[0px_15px_25px_rgba(56,66,85,0.24623)] outline-none"}>
+                        {options.map((option) => (
+                          <ListboxOption key={option} value={option} className={"group flex items-center gap-x-[15.57px] text-[20px] leading-7 text-[#111111]"}>
+                            <img src={"/images/icons/icon-check.svg"} className={"invisible group-data-[selected]:visible"} alt={"Icon Check"} />
+                            {option}
+                          </ListboxOption>
+                        ))}
+                      </ListboxOptions>
+                    </Listbox>
+                  </div>
                 </div>
               </fieldset>
 
