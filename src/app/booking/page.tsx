@@ -10,32 +10,27 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import Error from "@/components/Error";
+import PeopleCounter from "@/components/PeopleCounter";
 
 const options = ["AM", "PM"];
 
 const schema = yup.object({
   name: yup.string().required("This field is required"),
   email: yup.string().email("Invalid email").required("This field is required"),
-  // month two digits
-  month: yup
-    .string()
-    .matches(/^(0[1-9]|1[0-2])$/, "Month must be two digits")
-    .required("Month is required"),
-  // day two digits
-  day: yup
-    .string()
-    .matches(/^(0[1-9]|[12][0-9]|3[01])$/, "Day must be two digits")
-    .required("Day is required"),
-  // year four digits
-  year: yup
-    .string()
-    .matches(/^\d{4}$/, "Year must be four digits")
-    .required("Year is required"),
-  // if month, day, year invalid, show error; use the schema.month day year
+  month: yup.number().integer().positive().lessThan(13),
+  day: yup.number().integer().positive().lessThan(32),
+  year: yup.number().integer().positive().moreThan(1900).lessThan(2100),
   date: yup.string().test("is-valid-date", "This field is incomplete", function () {
     const { month, day, year } = this.parent;
+    // check if month, day, year are empty
     if (!month || !day || !year) return false;
-    // Optional: you can further validate if it's an actually valid date here
+    // check if month, day, year are valid
+    const monthNum = parseInt(month, 10);
+    const dayNum = parseInt(day, 10);
+    const yearNum = parseInt(year, 10);
+    const date = new Date(yearNum, monthNum - 1, dayNum);
+    // check if date is valid
+    if (isNaN(date.getTime())) return false;
     return true;
   }),
   // hour two digits
@@ -45,7 +40,6 @@ const schema = yup.object({
   time: yup.string().test("is-valid-time", "This field is incomplete", function () {
     const { hour, minute } = this.parent;
     if (!hour || !minute) return false;
-    // Optional: you can further validate if it's an actually valid time here
     return true;
   }),
 });
@@ -76,64 +70,30 @@ export default function BookingPage() {
 
             <form onSubmit={handleSubmit(onSubmit)} className={"z-20 h-[545px] w-[540px] space-y-[34px] bg-white px-[48px] pt-[50px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)]"}>
               <div className={"relative"}>
-                <input
-                  {...register("name")}
-                  aria-invalid={errors.name ? "true" : "false"}
-                  type="text"
-                  placeholder="Name"
-                  className={
-                    "w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:border-[#111111] focus:outline-none aria-[invalid=true]:border-[#B54949] aria-[invalid=true]:placeholder:text-[#B54949]/50"
-                  }
-                />
-                {errors.name && (
-                  <p aria-invalid={errors.name ? "true" : "false"} className={"absolute pt-2.5 pl-4 text-[10px] font-medium tracking-[-0.13px] text-[#B54949]"}>
-                    {errors.name.message}
-                  </p>
-                )}
+                <Input type={"text"} placeholder={"Name"} register={register} registerName={"name"} ariaInvalid={!!errors.name} />
+                <Error ariaInvalid={!!errors.name} errorMessage={errors.name?.message} variant={"smallPadding"} />
               </div>
 
               <div className={"relative"}>
-                <input
-                  {...register("email")}
-                  aria-invalid={errors.email ? "true" : "false"}
-                  type="text"
-                  placeholder="Email"
-                  className={
-                    "w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:border-[#111111] focus:outline-none aria-[invalid=true]:border-[#B54949] aria-[invalid=true]:placeholder:text-[#B54949]/50"
-                  }
-                />
-                {errors.email && (
-                  <p aria-invalid={errors.email ? "true" : "false"} className={"absolute pt-2.5 pl-4 text-[10px] font-medium tracking-[-0.13px] text-[#B54949]"}>
-                    {errors.email.message}
-                  </p>
-                )}
+                <Input type={"text"} placeholder={"Email"} register={register} registerName={"email"} ariaInvalid={!!errors.email} />
+                <Error ariaInvalid={!!errors.email} errorMessage={errors.email?.message} variant={"smallPadding"} />
               </div>
 
               <fieldset className={"flex items-center"}>
-                <label aria-invalid={!!errors.date} className={"shrink-0 text-[20px] leading-[28px] text-black aria-[invalid=true]:text-[#B54949] aria-[invalid=true]:placeholder:text-[#B54949]/50"}>
-                  Pick a date
-                </label>
-                <Error ariaInvalid={!!errors.date} errorMessage={errors.date?.message} variant={"date"} />
+                <Label ariaInvalid={!!errors.date} labelName={"Pick a date"} />
+                <Error ariaInvalid={!!errors.date} errorMessage={errors.date?.message} variant={"largePadding"} />
                 <div className={"flex gap-x-4 pl-[65px]"}>
-                  <Input type={"text"} placeholder={"Month"} register={register} registerName={"month"} ariaInvalid={!!errors.month} />
-                  <Input type={"number"} placeholder={"Day"} register={register} registerName={"day"} ariaInvalid={!!errors.day} />
-                  <Input type={"number"} placeholder={"Year"} register={register} registerName={"year"} ariaInvalid={!!errors.year} />
-                  {/*<input type="text" placeholder={"Month"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />*/}
-                  {/*<input type="text" placeholder={"Day"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />*/}
-                  {/*<input type="text" placeholder={"Year"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />*/}
+                  <Input type={"number"} placeholder={"Month"} register={register} registerName={"month"} ariaInvalid={!!errors.month} />
+                  <Input type={"text"} placeholder={"Day"} register={register} registerName={"day"} ariaInvalid={!!errors.day} />
+                  <Input type={"text"} placeholder={"Year"} register={register} registerName={"year"} ariaInvalid={!!errors.year} />
                 </div>
               </fieldset>
               <fieldset className={"flex items-center"}>
-                {/*<label className={"shrink-0 text-[20px] leading-[28px] text-black"}>Pick a time</label>*/}
                 <Label ariaInvalid={!!errors.time} labelName={"Pick a time"} />
-                <Error ariaInvalid={!!errors.time} errorMessage={errors.time?.message} variant={"date"} />
+                <Error ariaInvalid={!!errors.time} errorMessage={errors.time?.message} variant={"largePadding"} />
                 <div className={"flex gap-x-4 pl-[65px]"}>
                   <Input type={"number"} placeholder={"Hour"} register={register} registerName={"hour"} ariaInvalid={!!errors.hour} />
                   <Input type={"number"} placeholder={"Minute"} register={register} registerName={"minute"} ariaInvalid={!!errors.minute} />
-
-                  {/*<input type="text" placeholder={"Hour"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />*/}
-                  {/*<input type="text" placeholder={"Minute"} className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4 text-[20px] leading-7 text-[#111111] placeholder:text-[#111111]/50 focus:outline-none"} />*/}
-
                   <div className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4"}>
                     <Listbox value={selected} onChange={setSelected}>
                       <ListboxButton className={"group flex items-center gap-x-[15px] text-[20px] leading-7 text-[#111111] outline-none"}>
@@ -153,13 +113,7 @@ export default function BookingPage() {
                 </div>
               </fieldset>
 
-              <div className={"z-10 flex w-full items-center justify-between border-b border-[#8E8E8E] px-[32.63px] pb-[15px]"}>
-                <img src={"/images/icons/icon-minus.svg"} alt={"Minus Icon"} onClick={() => setNumOfPeople(numOfPeople - 1)} />
-                <div>
-                  <label className={"shrink-0 text-[20px] leading-[28px] font-bold text-black"}>{numOfPeople} people</label>
-                </div>
-                <img src={"/images/icons/icon-plus.svg"} alt={"Plus Icon"} onClick={() => setNumOfPeople(numOfPeople + 1)} />
-              </div>
+              <PeopleCounter numOfPeople={numOfPeople} setNumOfPeople={setNumOfPeople} />
 
               <button type={"submit"} className={"h-[64px] w-[444px] bg-black"}>
                 <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] text-white uppercase"}>MAKE RESERVATION</span>
