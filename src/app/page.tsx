@@ -111,18 +111,12 @@ export default function Home() {
 
             <div className={"-ml-[125px] flex pt-[79px]"}>
               <ul className={"list-none"}>
-                <li onClick={() => setImageIndex(0)} className={"text-heading-sm group flex items-center gap-x-8"}>
-                  <div className={"hidden h-[1px] w-[95px] bg-[#9E7F66] group-hover:block"} />
-                  <span className={"ml-[127px] text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>Family Gathering</span>
-                </li>
-                <li onClick={() => setImageIndex(1)} className={"text-heading-sm group flex items-center gap-x-8"}>
-                  <div className={"hidden h-[1px] w-[95px] bg-[#9E7F66] group-hover:block"} />
-                  <span className={"ml-[127px] text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>Special Events</span>
-                </li>
-                <li onClick={() => setImageIndex(2)} className={"text-heading-sm group flex items-center gap-x-8"}>
-                  <div className={"hidden h-[1px] w-[95px] bg-[#9E7F66] group-hover:block"} />
-                  <span className={"ml-[127px] text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>Social Events</span>
-                </li>
+                {["Family Gathering", "Special Events", "Social Events"].map((item, index) => (
+                  <li key={index} onClick={() => setImageIndex(index)} className={"text-heading-sm group flex items-center gap-x-8"}>
+                    <div className={`invisible h-[1px] w-[95px] bg-[#9E7F66] ${imageIndex == index ? "visible" : ""}`} />
+                    <span className={"text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

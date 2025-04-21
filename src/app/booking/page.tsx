@@ -84,8 +84,8 @@ export default function BookingPage() {
                 <Error ariaInvalid={!!errors.date} errorMessage={errors.date?.message} variant={"largePadding"} />
                 <div className={"flex gap-x-4 pl-[65px]"}>
                   <Input type={"number"} placeholder={"Month"} register={register} registerName={"month"} ariaInvalid={!!errors.month} />
-                  <Input type={"text"} placeholder={"Day"} register={register} registerName={"day"} ariaInvalid={!!errors.day} />
-                  <Input type={"text"} placeholder={"Year"} register={register} registerName={"year"} ariaInvalid={!!errors.year} />
+                  <Input type={"number"} placeholder={"Day"} register={register} registerName={"day"} ariaInvalid={!!errors.day} />
+                  <Input type={"number"} placeholder={"Year"} register={register} registerName={"year"} ariaInvalid={!!errors.year} />
                 </div>
               </fieldset>
               <fieldset className={"flex items-center"}>
