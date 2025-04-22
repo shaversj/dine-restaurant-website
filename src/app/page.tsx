@@ -8,15 +8,25 @@ export default function Home() {
   const images = ["/images/homepage/family-gathering-desktop.jpg", "/images/homepage/special-events-desktop.jpg", "/images/homepage/social-events-desktop.jpg"];
   return (
     <div className={"font-league-spartan relative"}>
-      <header className={"h-[892px] w-full bg-[url('/images/homepage/hero-bg-desktop.jpg')] bg-cover bg-no-repeat"}>
-        <div className={"border-white pt-[65px] pl-[165px]"}>
-          <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
-          <div className={"absolute w-[515px] pt-[153px]"}>
-            <h2 className={"text-[80px] leading-[80px] font-extralight tracking-[-1]"}>Exquisite dining since 1989</h2>
-            <p>Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse.</p>
+      <header className={"w-full bg-[url('/images/homepage/hero-bg-mobile.jpg')] bg-cover bg-no-repeat md:bg-[url('/images/homepage/hero-bg-tablet.jpg')] lg:h-[55.75rem] lg:bg-[url('/images/homepage/hero-bg-desktop.jpg')]"}>
+        <div className={"px-6 md:px-10 lg:pl-[10.313rem]"}>
+          <div className={"grid place-items-center pt-[14.5rem] md:pt-[23.375rem] lg:absolute lg:w-[32.188rem] lg:place-items-start lg:pt-[4.063rem]"}>
+            <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
 
-            <button className={"mt-[40px] h-[64px] w-[245px] border border-white"}>
-              <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase"}>Book a table</span>
+            <div
+              className={
+                "pt-9 text-center text-[2rem] leading-[2.5rem] font-light tracking-[0.025rem] md:pt-[2.375rem] md:text-[3rem] md:leading-16 md:tracking-[--0.038rem] lg:w-full lg:pt-[9.563rem] lg:text-left lg:text-[5rem] lg:leading-[5rem] lg:tracking-[-0.063rem]"
+              }
+            >
+              <span>Exquisite dining</span>
+              <span className={"block"}> since 1989</span>
+            </div>
+            <p className={"pt-[1.313rem] text-center text-[1rem] leading-[1.625rem] text-white md:px-[3.625rem] md:pt-[1.25rem] md:text-[1.25rem] md:leading-[1.875rem] lg:px-0 lg:pt-[1.125rem] lg:text-left"}>
+              Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse.
+            </p>
+
+            <button className={"mt-[3.313rem] h-[4rem] w-[15.313rem] border border-white lg:mt-[2.5rem]"}>
+              <span className={"font-league-spartan text-[1.063rem] leading-[1rem] font-semibold tracking-[0.156rem] uppercase"}>Book a table</span>
             </button>
           </div>
         </div>
@@ -52,7 +62,6 @@ export default function Home() {
             <p className={"text-body-primary pt-[27px] text-white"}>We cater for all dietary requirements, but here’s a glimpse at some of our diner’s favourites. Our menu is revamped every season.</p>
           </div>
 
-          {/*Menu Stuff*/}
           <div>
             <div className={"flex gap-x-[62px]"}>
               <div className={"flex"}>
