@@ -4,8 +4,26 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
-  const [imageIndex, setImageIndex] = useState(0);
-  const images = ["/images/homepage/family-gathering-desktop.jpg", "/images/homepage/special-events-desktop.jpg", "/images/homepage/social-events-desktop.jpg"];
+  const [eventName, setEventName] = useState("Family Gathering");
+
+  const eventImages = {
+    "Family Gathering": {
+      mobile: "/images/homepage/family-gathering-mobile.jpg",
+      tablet: "/images/homepage/family-gathering-tablet.jpg",
+      desktop: "/images/homepage/family-gathering-desktop.jpg",
+    },
+    "Special Events": {
+      mobile: "/images/homepage/special-events-mobile.jpg",
+      tablet: "/images/homepage/special-events-tablet.jpg",
+      desktop: "/images/homepage/special-events-desktop.jpg",
+    },
+    "Social Events": {
+      mobile: "/images/homepage/social-events-mobile.jpg",
+      tablet: "/images/homepage/social-events-tablet.jpg",
+      desktop: "/images/homepage/social-events-desktop.jpg",
+    },
+  };
+
   return (
     <div className={"font-league-spartan relative"}>
       <header className={"w-full bg-[url('/images/homepage/hero-bg-mobile.jpg')] bg-cover bg-no-repeat md:bg-[url('/images/homepage/hero-bg-tablet.jpg')] lg:h-[55.75rem] lg:bg-[url('/images/homepage/hero-bg-desktop.jpg')]"}>
@@ -143,24 +161,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={"bg-white"}>
-        <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute z-10 translate-x-[-350px]"} alt="Pattern" />
-        <img src={"/images/patterns/pattern-lines.svg"} alt={"Lines"} className={"absolute z-30 translate-x-[125px] translate-y-[122px]"} />
-        <div className={"flex items-center gap-x-[125px] px-[165px] pt-[160px] pb-[160px]"}>
-          <img src={images[imageIndex]} alt={"Family Gathering"} className={"z-20"} />
-          <div className={"w-[445px]"}>
-            <h2 className={"text-heading-lg text-black"}>Family Gathering</h2>
-            <p className={"text-body-primary pt-[19px] text-black"}> We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.</p>
-            <button className={"button-primary mt-[60px] bg-black"}>
-              <span className={"text-button-primary"}>Book a table</span>
-            </button>
+      <section className={"bg-white pt-20 lg:pt-0"}>
+        <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute z-10 hidden translate-x-[-350px] md:block"} alt="Pattern" />
+        <img src={"/images/patterns/pattern-lines.svg"} alt={"Lines"} className={"absolute z-30 hidden translate-x-[125px] translate-y-[122px] md:block"} />
+        <div className={"flex flex-col px-6 pb-[124px] md:px-[40px] lg:flex-row lg:items-center lg:gap-x-[125px] lg:px-[165px] lg:pt-[160px] lg:pb-[160px]"}>
+          <picture>
+            <source media="(max-width: 767px)" srcSet={eventImages[eventName as keyof typeof eventImages]["mobile"]} />
+            <source media="(max-width: 1023px)" srcSet={eventImages[eventName as keyof typeof eventImages]["tablet"]} />
+            <img src={"/images/homepage/family-gathering-desktop.jpg"} className={"z-20 shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)]"} alt="Family Gathering" />
+          </picture>
 
-            <div className={"-ml-[125px] flex pt-[79px]"}>
-              <ul className={"list-none"}>
-                {["Family Gathering", "Special Events", "Social Events"].map((item, index) => (
-                  <li key={index} onClick={() => setImageIndex(index)} className={"text-heading-sm group flex items-center gap-x-8"}>
-                    <div className={`invisible h-[1px] w-[95px] bg-[#9E7F66] ${imageIndex == index ? "visible" : ""}`} />
-                    <span className={"text-[#4C4C4C] opacity-50 group-hover:ml-0 hover:opacity-100"}>{item}</span>
+          <div className={"flex flex-col-reverse items-center lg:w-[445px]"}>
+            <div className={"grid place-items-center pt-[27px] md:pt-[47px] lg:pt-0"}>
+              <h2 className={"text-heading-lg text-center text-[#242B37] lg:text-left"}>Family Gathering</h2>
+              <p className={"text-body-primary pt-[19px] text-center text-[#242B37] lg:text-left"}>
+                {" "}
+                We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.
+              </p>
+              <button className={"button-primary mt-[27px] bg-black lg:mt-[60px]"}>
+                <span className={"text-button-primary"}>Book a table</span>
+              </button>
+            </div>
+
+            <div className={"pt-[49px] md:pt-[57px] lg:-ml-[125px] lg:flex lg:pt-[79px]"}>
+              <ul className={"flex list-none flex-col gap-y-4"}>
+                {Object.keys(eventImages).map((event) => (
+                  <li key={event} onClick={() => setEventName(event)} className={"text-heading-sm group flex flex-col-reverse items-center uppercase lg:flex-row lg:gap-x-8"}>
+                    <div className={`invisible h-[1px] w-[48px] bg-[#9E7F66] lg:w-[95px] ${eventName == event ? "visible" : ""}`} />
+                    <span className={`group-hover:ml-0 hover:opacity-100 ${eventName == event ? "text-[#242B37]" : "text-[#4C4C4C] opacity-50"}`}>{event}</span>
                   </li>
                 ))}
               </ul>
@@ -169,30 +197,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={"flex h-[240px] items-center gap-x-[250px] bg-[url('/images/homepage/ready-bg-desktop.jpg')] bg-cover bg-no-repeat px-[165px]"}>
-        <h3 className={"text-heading-lg text-white"}>Ready to make a reservation?</h3>
-        <button className={"button-primary ml-auto border border-white"}>
-          <span className={"text-button-primary"}>Book a table</span>
-        </button>
-      </section>
+      {/*<section className={"flex h-[240px] items-center gap-x-[250px] bg-[url('/images/homepage/ready-bg-desktop.jpg')] bg-cover bg-no-repeat px-[165px]"}>*/}
+      {/*  <h3 className={"text-heading-lg text-white"}>Ready to make a reservation?</h3>*/}
+      {/*  <button className={"button-primary ml-auto border border-white"}>*/}
+      {/*    <span className={"text-button-primary"}>Book a table</span>*/}
+      {/*  </button>*/}
+      {/*</section>*/}
 
-      <footer className={"text-footer h-[240px] px-[165px]"}>
-        <div className={"flex items-start pt-20"}>
-          <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
-          <div className={"ml-auto flex w-[814px]"}>
-            <div>
-              <p>Marthwaite, Sedbergh</p>
-              <p>Cumbria</p>
-              <a href={"tel:+00441234567"}>+00 44 1234 4567</a>
-            </div>
-            <div className={"ml-auto w-[446px]"}>
-              <p>Open Times</p>
-              <p>MON - FRI: 09:00 AM - 10:00 PM</p>
-              <p>SAT - SUN: 09:00 AM - 11:30 PM</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/*<footer className={"text-footer h-[240px] px-[165px]"}>*/}
+      {/*  <div className={"flex items-start pt-20"}>*/}
+      {/*    <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />*/}
+      {/*    <div className={"ml-auto flex w-[814px]"}>*/}
+      {/*      <div>*/}
+      {/*        <p>Marthwaite, Sedbergh</p>*/}
+      {/*        <p>Cumbria</p>*/}
+      {/*        <a href={"tel:+00441234567"}>+00 44 1234 4567</a>*/}
+      {/*      </div>*/}
+      {/*      <div className={"ml-auto w-[446px]"}>*/}
+      {/*        <p>Open Times</p>*/}
+      {/*        <p>MON - FRI: 09:00 AM - 10:00 PM</p>*/}
+      {/*        <p>SAT - SUN: 09:00 AM - 11:30 PM</p>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</footer>*/}
     </div>
   );
 }
