@@ -168,7 +168,7 @@ export default function Home() {
           <picture>
             <source media="(max-width: 767px)" srcSet={eventImages[eventName as keyof typeof eventImages]["mobile"]} />
             <source media="(max-width: 1023px)" srcSet={eventImages[eventName as keyof typeof eventImages]["tablet"]} />
-            <img src={"/images/homepage/family-gathering-desktop.jpg"} className={"z-20 shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)]"} alt="Family Gathering" />
+            <img src={eventImages[eventName as keyof typeof eventImages]["desktop"]} className={"z-20 shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)]"} alt="Family Gathering" />
           </picture>
 
           <div className={"flex flex-col-reverse items-center lg:w-[445px]"}>
