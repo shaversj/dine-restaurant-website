@@ -164,7 +164,7 @@ export default function Home() {
       <section className={"bg-white pt-20 md:pt-0"}>
         <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute z-10 hidden translate-x-[-350px] md:block"} alt="Pattern" />
         <img src={"/images/patterns/pattern-lines.svg"} alt={"Lines"} className={"absolute z-30 hidden md:block md:translate-x-[37px] md:translate-y-[82px] lg:translate-x-[125px] lg:translate-y-[122px]"} />
-        <div className={"flex flex-col px-6 pb-[124px] md:px-[40px] md:pt-[120px] lg:flex-row lg:items-center lg:gap-x-[125px] lg:px-[165px] lg:pt-[160px] lg:pb-[160px]"}>
+        <div className={"flex flex-col px-6 pb-[124px] md:px-[40px] md:pt-[120px] md:pb-[120px] lg:flex-row lg:items-center lg:gap-x-[125px] lg:px-[165px] lg:pt-[160px] lg:pb-[160px]"}>
           <picture>
             <source media="(max-width: 767px)" srcSet={eventImages[eventName as keyof typeof eventImages]["mobile"]} />
             <source media="(max-width: 1023px)" srcSet={eventImages[eventName as keyof typeof eventImages]["tablet"]} />
@@ -197,30 +197,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/*<section className={"flex h-[240px] items-center gap-x-[250px] bg-[url('/images/homepage/ready-bg-desktop.jpg')] bg-cover bg-no-repeat px-[165px]"}>*/}
-      {/*  <h3 className={"text-heading-lg text-white"}>Ready to make a reservation?</h3>*/}
-      {/*  <button className={"button-primary ml-auto border border-white"}>*/}
-      {/*    <span className={"text-button-primary"}>Book a table</span>*/}
-      {/*  </button>*/}
-      {/*</section>*/}
+      <section
+        className={
+          "flex flex-col items-center bg-[url('/images/homepage/ready-bg-mobile.jpg')] bg-cover bg-no-repeat px-6 pt-[84px] pb-[80px] md:bg-[url('/images/homepage/ready-bg-tablet.jpg')] md:pt-[72px] md:pb-[64px] md:pl-[66px] lg:h-[240px] lg:flex-row lg:gap-x-[250px] lg:bg-[url('/images/homepage/ready-bg-desktop.jpg')] lg:px-[165px]"
+        }
+      >
+        <h3 className={"text-heading-lg text-center text-white lg:text-left"}>Ready to make a reservation?</h3>
+        <button className={"button-primary mt-5 border border-white md:mt-6 lg:mt-0 lg:ml-auto"}>
+          <span className={"text-button-primary"}>Book a table</span>
+        </button>
+      </section>
 
-      {/*<footer className={"text-footer h-[240px] px-[165px]"}>*/}
-      {/*  <div className={"flex items-start pt-20"}>*/}
-      {/*    <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />*/}
-      {/*    <div className={"ml-auto flex w-[814px]"}>*/}
-      {/*      <div>*/}
-      {/*        <p>Marthwaite, Sedbergh</p>*/}
-      {/*        <p>Cumbria</p>*/}
-      {/*        <a href={"tel:+00441234567"}>+00 44 1234 4567</a>*/}
-      {/*      </div>*/}
-      {/*      <div className={"ml-auto w-[446px]"}>*/}
-      {/*        <p>Open Times</p>*/}
-      {/*        <p>MON - FRI: 09:00 AM - 10:00 PM</p>*/}
-      {/*        <p>SAT - SUN: 09:00 AM - 11:30 PM</p>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</footer>*/}
+      <footer className={"text-footer h-[240px] px-6 md:px-[40px] lg:px-[165px]"}>
+        <div className={"flex flex-col items-center py-20 md:flex-row md:items-start md:gap-x-[129.58px] md:py-16"}>
+          <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
+          <div className={"flex flex-col pt-[42px] text-center md:pt-0 md:text-left lg:ml-auto lg:w-[814px] lg:flex-row"}>
+            <div>
+              <p>Marthwaite, Sedbergh</p>
+              <p>Cumbria</p>
+              <a href={"tel:+00441234567"}>+00 44 1234 4567</a>
+            </div>
+            <div className={"pt-8 lg:ml-auto lg:w-[446px] lg:pt-0"}>
+              <p>Open Times</p>
+              <p>MON - FRI: 09:00 AM - 10:00 PM</p>
+              <p>SAT - SUN: 09:00 AM - 11:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
