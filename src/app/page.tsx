@@ -26,7 +26,9 @@ export default function Home() {
 
   return (
     <div className={"font-league-spartan relative"}>
-      <header className={"w-full bg-[url('/images/homepage/hero-bg-mobile.jpg')] bg-cover bg-no-repeat md:bg-[url('/images/homepage/hero-bg-tablet.jpg')] lg:h-[55.75rem] lg:bg-[url('/images/homepage/hero-bg-desktop.jpg')]"}>
+      <header
+        className={"w-full bg-[url('/images/homepage/hero-bg-mobile.jpg')] bg-cover bg-no-repeat pb-[152px] md:bg-[url('/images/homepage/hero-bg-tablet.jpg')] md:pb-[216px] lg:h-[55.75rem] lg:bg-[url('/images/homepage/hero-bg-desktop.jpg')] lg:pb-0"}
+      >
         <div className={"px-6 md:px-10 lg:pl-[10.313rem]"}>
           <div className={"grid place-items-center pt-[14.5rem] md:pt-[23.375rem] lg:absolute lg:w-[32.188rem] lg:place-items-start lg:pt-[4.063rem]"}>
             <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
@@ -71,7 +73,7 @@ export default function Home() {
         <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute hidden h-[320px] -translate-x-1/2 translate-y-[100px] md:block lg:left-0 lg:-translate-x-0 lg:translate-y-[250px]"} alt="Pattern" />
       </section>
 
-      <section className={"relative overflow-hidden bg-white px-6 md:px-[98px] lg:px-[165px]"}>
+      <section className={"relative overflow-x-hidden bg-white px-6 md:px-[98px] lg:overflow-visible lg:px-[165px]"}>
         <img src={"/images/patterns/pattern-curve-top-left.svg"} className={"absolute right-0 bottom-0 hidden translate-x-1/2 md:block lg:translate-x-0"} alt="Pattern" />
         <div className={"flex flex-col-reverse items-center pb-[118px] lg:flex-row lg:gap-x-[125px] lg:pb-0"}>
           <div className={"pt-[48px] md:w-[457px] lg:w-[445px]"}>
@@ -93,7 +95,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={"white px-6 pt-[72px] md:px-[98px] md:pt-24 lg:px-[125px] lg:pt-[200px] lg:pb-[120px]"}>
+      <section className={"px-6 pt-[72px] pb-[102px] md:px-[98px] md:pt-24 md:pb-24 lg:px-[125px] lg:pt-[200px] lg:pb-[120px]"}>
         <svg className={"mx-auto lg:inline-flex"} width="71" height="7" viewBox="0 0 71 7" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="15" y="3" width="56" height="1" fill="#9E7F66" />
           <circle cx="3.5" cy="3.5" r="3" stroke="#9E7F66" />
