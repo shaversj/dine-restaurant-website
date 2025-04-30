@@ -65,10 +65,19 @@ export default function BookingPage() {
           <div className={"flex flex-col items-center pt-[44px] md:pt-[70px] lg:flex-row lg:gap-x-[125px] lg:pt-[153px]"}>
             <div className={"text-center md:w-[573px] lg:w-[445px] lg:text-left"}>
               <h1 className={"text-heading-xl text-white"}>Reservations</h1>
-              <p className={"text-body-primary pt-[18px] text-white"}>We can’t wait to host you. If you have any special requirements please feel free to call on the phone number below. We’ll be happy to accommodate you.</p>
+              <p className={"pt-[18px] text-[16px] leading-[26px] text-white md:text-[20px] md:leading-[30px]"}>
+                We can’t wait to host you. If you have any special requirements please feel free to call on the phone number below. We’ll be happy to accommodate you.
+              </p>
+
+              <button type={"submit"} className={"mt-[19px] h-[64px] w-[263px] border border-white md:hidden md:h-[64px] md:w-[444px]"}>
+                <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] text-white uppercase"}>Reserve Place</span>
+              </button>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className={"z-20 mt-[38px] h-[545px] w-[540px] space-y-[34px] bg-white px-[48px] pt-[50px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] lg:mt-0"}>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className={"z-20 mt-[38px] h-[585px] w-[327px] space-y-[34px] bg-white px-8 pt-[34px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] md:h-[545px] md:max-w-[540px] md:px-[48px] md:pt-[50px] lg:mt-0"}
+            >
               <div className={"relative"}>
                 <Input type={"text"} placeholder={"Name"} register={register} registerName={"name"} ariaInvalid={!!errors.name} />
                 <Error ariaInvalid={!!errors.name} errorMessage={errors.name?.message} variant={"smallPadding"} />
@@ -79,19 +88,19 @@ export default function BookingPage() {
                 <Error ariaInvalid={!!errors.email} errorMessage={errors.email?.message} variant={"smallPadding"} />
               </div>
 
-              <fieldset className={"flex items-center"}>
+              <fieldset className={"flex flex-col gap-y-2 md:flex-row md:items-center"}>
                 <Label ariaInvalid={!!errors.date} labelName={"Pick a date"} />
                 <Error ariaInvalid={!!errors.date} errorMessage={errors.date?.message} variant={"largePadding"} />
-                <div className={"flex gap-x-4 pl-[65px]"}>
+                <div className={"flex gap-x-4 md:pl-[65px]"}>
                   <Input type={"number"} placeholder={"Month"} register={register} registerName={"month"} ariaInvalid={!!errors.month} />
                   <Input type={"number"} placeholder={"Day"} register={register} registerName={"day"} ariaInvalid={!!errors.day} />
                   <Input type={"number"} placeholder={"Year"} register={register} registerName={"year"} ariaInvalid={!!errors.year} />
                 </div>
               </fieldset>
-              <fieldset className={"flex items-center"}>
+              <fieldset className={"flex flex-col gap-y-2 md:flex-row md:items-center"}>
                 <Label ariaInvalid={!!errors.time} labelName={"Pick a time"} />
                 <Error ariaInvalid={!!errors.time} errorMessage={errors.time?.message} variant={"largePadding"} />
-                <div className={"flex gap-x-4 pl-[65px]"}>
+                <div className={"flex gap-x-4 md:pl-[65px]"}>
                   <Input type={"number"} placeholder={"Hour"} register={register} registerName={"hour"} ariaInvalid={!!errors.hour} />
                   <Input type={"number"} placeholder={"Minute"} register={register} registerName={"minute"} ariaInvalid={!!errors.minute} />
                   <div className={"w-full border-b border-[#8E8E8E] pb-[15px] pl-4"}>
@@ -115,7 +124,7 @@ export default function BookingPage() {
 
               <PeopleCounter numOfPeople={numOfPeople} setNumOfPeople={setNumOfPeople} />
 
-              <button type={"submit"} className={"h-[64px] w-[444px] bg-black"}>
+              <button type={"submit"} className={"h-[64px] w-[263px] bg-black md:h-[64px] md:w-[444px]"}>
                 <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] text-white uppercase"}>MAKE RESERVATION</span>
               </button>
             </form>
