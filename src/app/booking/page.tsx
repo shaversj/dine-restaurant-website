@@ -59,16 +59,16 @@ export default function BookingPage() {
 
   return (
     <div className={"font-league-spartan"}>
-      <header className={"h-[600px] bg-[url('/images/booking/hero-bg-desktop.jpg')] bg-cover bg-no-repeat"}>
-        <div className={"px-[165px] pt-[65px]"}>
-          <Image src={"/images/logo.svg"} alt="Logo" width={103} height={40} />
-          <div className={"flex gap-x-[125px] pt-[153px]"}>
-            <div className={"w-[445px]"}>
+      <header className={"h-[600px] bg-[url('/images/booking/hero-bg-mobile.jpg')] bg-cover bg-no-repeat md:bg-[url('/images/booking/hero-bg-tablet.jpg')] lg:bg-[url('/images/booking/hero-bg-desktop.jpg')]"}>
+        <div className={"px-6 pt-[56px] md:px-[40px] md:pt-[65px] lg:px-[165px]"}>
+          <Image src={"/images/logo.svg"} alt="Logo" className={"mx-auto md:mx-0"} width={103} height={40} />
+          <div className={"flex flex-col items-center pt-[44px] md:pt-[70px] lg:flex-row lg:gap-x-[125px] lg:pt-[153px]"}>
+            <div className={"text-center md:w-[573px] lg:w-[445px] lg:text-left"}>
               <h1 className={"text-heading-xl text-white"}>Reservations</h1>
               <p className={"text-body-primary pt-[18px] text-white"}>We can’t wait to host you. If you have any special requirements please feel free to call on the phone number below. We’ll be happy to accommodate you.</p>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className={"z-20 h-[545px] w-[540px] space-y-[34px] bg-white px-[48px] pt-[50px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)]"}>
+            <form onSubmit={handleSubmit(onSubmit)} className={"z-20 mt-[38px] h-[545px] w-[540px] space-y-[34px] bg-white px-[48px] pt-[50px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] lg:mt-0"}>
               <div className={"relative"}>
                 <Input type={"text"} placeholder={"Name"} register={register} registerName={"name"} ariaInvalid={!!errors.name} />
                 <Error ariaInvalid={!!errors.name} errorMessage={errors.name?.message} variant={"smallPadding"} />
@@ -123,9 +123,9 @@ export default function BookingPage() {
         </div>
       </header>
 
-      <section className={"relative bg-white"}>
-        <img src={"/images/patterns/pattern-lines.svg"} className={"absolute translate-x-[655px] translate-y-[162px]"} alt="Lines" />
-        <img src={"/images/patterns/pattern-curve-bottom-right.svg"} alt="Pattern Bottom Right" />
+      <section className={"relative h-[534px] bg-white md:h-[435px] lg:h-auto"}>
+        <img src={"/images/patterns/pattern-lines.svg"} className={"absolute hidden translate-x-[655px] translate-y-[162px] lg:block"} alt="Lines" />
+        <img src={"/images/patterns/pattern-curve-bottom-right.svg"} className={"invisible lg:visible"} alt="Pattern Bottom Right" />
       </section>
 
       <Footer />
