@@ -1,7 +1,7 @@
 const VARIANTS = {
   base: "absolute text-[10px] hidden font-medium tracking-[-0.13px] text-[#B54949] aria-[invalid=true]:block",
   smallPadding: "pt-2.5 pl-4",
-  largePadding: "pt-8",
+  largePadding: "pt-5.5 md:pt-8",
 };
 
 type ErrorProps = {

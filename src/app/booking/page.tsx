@@ -22,20 +22,15 @@ const schema = yup.object({
   year: yup.number().integer().positive().moreThan(1900).lessThan(2100),
   date: yup.string().test("is-valid-date", "This field is incomplete", function () {
     const { month, day, year } = this.parent;
-    // check if month, day, year are empty
     if (!month || !day || !year) return false;
-    // check if month, day, year are valid
     const monthNum = parseInt(month, 10);
     const dayNum = parseInt(day, 10);
     const yearNum = parseInt(year, 10);
     const date = new Date(yearNum, monthNum - 1, dayNum);
-    // check if date is valid
     if (isNaN(date.getTime())) return false;
     return true;
   }),
-  // hour two digits
   hour: yup.number().integer().positive().lessThan(24),
-  // minute two digits
   minute: yup.number().integer().positive().lessThan(60),
   time: yup.string().test("is-valid-time", "This field is incomplete", function () {
     const { hour, minute } = this.parent;
@@ -62,7 +57,7 @@ export default function BookingPage() {
       <header className={"h-[600px] bg-[url('/images/booking/hero-bg-mobile.jpg')] bg-cover bg-no-repeat md:bg-[url('/images/booking/hero-bg-tablet.jpg')] lg:bg-[url('/images/booking/hero-bg-desktop.jpg')]"}>
         <div className={"px-6 pt-[56px] md:px-[40px] md:pt-[65px] lg:px-[165px]"}>
           <Image src={"/images/logo.svg"} alt="Logo" className={"mx-auto md:mx-0"} width={103} height={40} />
-          <div className={"flex flex-col items-center pt-[44px] md:pt-[70px] lg:flex-row lg:gap-x-[125px] lg:pt-[153px]"}>
+          <div className={"flex flex-col items-center pt-[44px] md:pt-[70px] lg:flex-row lg:items-start lg:gap-x-[125px] lg:pt-[153px]"}>
             <div className={"text-center md:w-[573px] lg:w-[445px] lg:text-left"}>
               <h1 className={"text-heading-xl text-white"}>Reservations</h1>
               <p className={"pt-[18px] text-[16px] leading-[26px] text-white md:text-[20px] md:leading-[30px]"}>
@@ -76,7 +71,7 @@ export default function BookingPage() {
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className={"z-20 mt-[38px] h-[585px] w-[327px] space-y-[34px] bg-white px-8 pt-[34px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] md:h-[545px] md:max-w-[540px] md:px-[48px] md:pt-[50px] lg:mt-0"}
+              className={"z-20 mt-[38px] h-[585px] w-[327px] space-y-[34px] bg-white px-8 pt-[34px] shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] md:h-[545px] md:w-[540px] md:px-[48px] md:pt-[50px] lg:mt-0"}
             >
               <div className={"relative"}>
                 <Input type={"text"} placeholder={"Name"} register={register} registerName={"name"} ariaInvalid={!!errors.name} />
@@ -124,8 +119,8 @@ export default function BookingPage() {
 
               <PeopleCounter numOfPeople={numOfPeople} setNumOfPeople={setNumOfPeople} />
 
-              <button type={"submit"} className={"h-[64px] w-[263px] bg-black md:h-[64px] md:w-[444px]"}>
-                <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] text-white uppercase"}>MAKE RESERVATION</span>
+              <button type={"submit"} className={"h-[64px] w-[263px] bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black md:h-[64px] md:w-[444px]"}>
+                <span className={"font-league-spartan text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase"}>MAKE RESERVATION</span>
               </button>
             </form>
           </div>

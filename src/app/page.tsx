@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [eventName, setEventName] = useState("Family Gathering");
@@ -45,9 +46,9 @@ export default function Home() {
               Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse.
             </p>
 
-            <button className={"mt-[3.313rem] h-[4rem] w-[15.313rem] border border-white lg:mt-[2.5rem]"}>
+            <Link href={"/booking"} className={"mt-[3.313rem] grid h-[4rem] w-[15.313rem] place-items-center border border-white hover:bg-white hover:text-black lg:mt-[2.5rem]"}>
               <span className={"font-league-spartan text-[1.063rem] leading-[1rem] font-semibold tracking-[0.156rem] uppercase"}>Book a table</span>
-            </button>
+            </Link>
           </div>
         </div>
       </header>
@@ -180,15 +181,15 @@ export default function Home() {
                 {" "}
                 We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.
               </p>
-              <button className={"button-primary mt-[27px] bg-black lg:mt-[60px]"}>
-                <span className={"text-button-primary"}>Book a table</span>
-              </button>
+              <Link href={"/booking"} className={"mt-[27px] grid h-[64px] w-[245px] place-items-center bg-black hover:border hover:border-black hover:bg-white hover:text-black lg:mt-[60px]"}>
+                <span className={"text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase"}>Book a table</span>
+              </Link>
             </div>
 
             <div className={"pt-[49px] md:w-full md:pt-[52px] lg:-ml-[125px] lg:flex lg:w-auto lg:pt-[79px]"}>
               <ul className={"flex list-none flex-col gap-y-4 md:flex-row md:justify-between md:gap-x-2.5 lg:flex-col lg:justify-start lg:gap-x-0"}>
                 {Object.keys(eventImages).map((event) => (
-                  <li key={event} onClick={() => setEventName(event)} className={"text-heading-sm group flex flex-col-reverse items-center uppercase lg:flex-row lg:gap-x-8"}>
+                  <li key={event} onClick={() => setEventName(event)} className={"text-heading-sm group flex cursor-pointer flex-col-reverse items-center uppercase lg:flex-row lg:gap-x-8"}>
                     <div className={`invisible h-[1px] w-[48px] bg-[#9E7F66] lg:w-[95px] ${eventName == event ? "visible" : ""}`} />
                     <span className={`group-hover:ml-0 hover:opacity-100 ${eventName == event ? "text-[#242B37]" : "text-[#4C4C4C] opacity-50"}`}>{event}</span>
                   </li>
@@ -205,9 +206,9 @@ export default function Home() {
         }
       >
         <h3 className={"text-heading-lg text-center text-white lg:text-left"}>Ready to make a reservation?</h3>
-        <button className={"button-primary mt-5 border border-white md:mt-6 lg:mt-0 lg:ml-auto"}>
-          <span className={"text-button-primary"}>Book a table</span>
-        </button>
+        <Link href={"/booking"} className={"mt-5 grid h-[64px] w-[245px] place-items-center border border-white text-[17px] leading-[16px] font-semibold tracking-[2.5px] uppercase hover:bg-white hover:text-black md:mt-6 lg:mt-0 lg:ml-auto"}>
+          Book a table
+        </Link>
       </section>
 
       <footer className={"text-footer h-[240px] px-6 md:px-[40px] lg:px-[165px]"}>
