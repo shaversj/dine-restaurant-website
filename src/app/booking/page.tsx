@@ -15,8 +15,8 @@ import PeopleCounter from "@/components/PeopleCounter";
 const options = ["AM", "PM"];
 
 const schema = yup.object({
-  name: yup.string().required("This field is required"),
-  email: yup.string().email("Invalid email").required("This field is required"),
+  name: yup.string().required("This field is required").required(),
+  email: yup.string().email("Invalid email").required("This field is required").required(),
   month: yup.number().integer().positive().lessThan(13),
   day: yup.number().integer().positive().lessThan(32),
   year: yup.number().integer().positive().moreThan(1900).lessThan(2100),
@@ -39,6 +39,18 @@ const schema = yup.object({
   }),
 });
 
+export interface BookingFormData {
+  name: string;
+  email: string;
+  month: number;
+  day: number;
+  year: number;
+  date: string;
+  hour: number;
+  minute: number;
+  time: string;
+}
+
 export default function BookingPage() {
   const [numOfPeople, setNumOfPeople] = useState(4);
   const [selected, setSelected] = useState(options[0]);
@@ -50,7 +62,8 @@ export default function BookingPage() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: any) => console.log(data);
+
+  const onSubmit = (data: any) => console.log(data); // eslint-disable-line
 
   return (
     <div className={"font-league-spartan"}>

@@ -1,16 +1,18 @@
+// import { UseFormRegister, FieldValues } from "react-hook-form";
+import { BookingFormData } from "@/app/booking/page";
+
 type InputProps = {
-  register?: any;
-  registerName?: string;
+  register?: any; // eslint-disable-line
+  registerName: keyof BookingFormData;
   type?: string;
   placeholder?: string;
-  className?: string;
   ariaInvalid?: boolean;
 };
 
-export default function Input({ register, registerName, type, placeholder, className, ariaInvalid }: InputProps) {
+export default function Input({ register, registerName, type, placeholder, ariaInvalid }: InputProps) {
   return (
     <input
-      {...register(registerName)}
+      {...register?.(registerName)}
       aria-invalid={ariaInvalid}
       type={type}
       placeholder={placeholder}
