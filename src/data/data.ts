@@ -21,3 +21,21 @@ export const menuItems = [
     mobile: "/images/homepage/chocolate-mobile.jpg",
   },
 ];
+
+export const eventImages = {
+  "Family Gathering": {
+    mobile: "/images/homepage/family-gathering-mobile.jpg",
+    tablet: "/images/homepage/family-gathering-tablet.jpg",
+    desktop: "/images/homepage/family-gathering-desktop.jpg",
+  },
+  "Special Events": {
+    mobile: "/images/homepage/special-events-mobile.jpg",
+    tablet: "/images/homepage/special-events-tablet.jpg",
+    desktop: "/images/homepage/special-events-desktop.jpg",
+  },
+  "Social Events": {
+    mobile: "/images/homepage/social-events-mobile.jpg",
+    tablet: "/images/homepage/social-events-tablet.jpg",
+    desktop: "/images/homepage/social-events-desktop.jpg",
+  },
+};
