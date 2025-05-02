@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { menuItems } from "@/data/data";
+import MenuSection from "@/components/MenuSection";
 
 export default function Home() {
   const [eventName, setEventName] = useState("Family Gathering");
@@ -61,7 +63,7 @@ export default function Home() {
               <source media="(max-width: 767px)" srcSet={"/images/homepage/enjoyable-place-mobile.jpg"} />
               <source media="(max-width: 1023px)" srcSet={"/images/homepage/enjoyable-place-tablet.jpg"} />
               <source media="(max-width: 1800px)" srcSet={"/images/homepage/enjoyable-place-desktop.jpg"} />
-              <img src={"/images/homepage/enjoyable-place-mobile.jpg"} className={"lg:relative lg:bottom-[70px] lg:h-[720px] lg:w-[540px]"} alt="Enjoyable place" />
+              <img src={"/images/homepage/enjoyable-place-mobile.jpg"} className={"mx-auto lg:relative lg:bottom-[70px] lg:mx-0 lg:h-[720px] lg:w-[540px]"} alt="Enjoyable place" />
             </picture>
             <div className={"pt-12 md:pt-14 lg:w-[445px] lg:pt-[232px]"}>
               <img src={"/images/patterns/pattern-divide.svg"} className={"mx-auto lg:mx-0"} alt="Pattern Divide" />
@@ -98,73 +100,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={"px-6 pt-[72px] pb-[102px] md:px-[98px] md:pt-24 md:pb-24 lg:px-[125px] lg:pt-[200px] lg:pb-[120px]"}>
-          <svg className={"mx-auto lg:inline-flex"} width="71" height="7" viewBox="0 0 71 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="15" y="3" width="56" height="1" fill="#9E7F66" />
-            <circle cx="3.5" cy="3.5" r="3" stroke="#9E7F66" />
-          </svg>
-
-          <div className={"flex flex-col items-start pt-[38px] md:pt-[39px] lg:flex-row lg:gap-x-[165px] lg:pt-[55px]"}>
-            <div className={"md:px-16 lg:w-[445px] lg:px-0"}>
-              <h2 className={"text-heading-lg text-center text-white lg:text-left"}>A few highlights from our menu</h2>
-              <p className={"text-body-primary pt-[27px] text-center text-white lg:text-left"}>We cater for all dietary requirements, but here’s a glimpse at some of our diner’s favourites. Our menu is revamped every season.</p>
-            </div>
-
-            <div className={"pt-[85px] md:pt-[54px] lg:pt-0"}>
-              <div className={"flex flex-col md:flex-row md:items-center md:gap-x-[62px]"}>
-                <div className={"flex"}>
-                  <picture>
-                    <source media="(max-width: 767px)" srcSet={"/images/homepage/salmon-mobile.jpg"} />
-                    <source media="(max-width: 1023px)" srcSet={"/images/homepage/salmon-desktop-tablet.jpg"} />
-                    <img src={"/images/homepage/salmon-desktop-tablet.jpg"} alt="Salmon" />
-                  </picture>
-                  <div className={"mt-4 hidden h-[1px] w-8 bg-[#9E7F66] md:block"} />
-                </div>
-
-                <div className={"mt-2 pt-[36px] md:pt-0 lg:w-[350px]"}>
-                  <h3 className={"text-heading-md text-center md:text-left"}>Seared Salmon Fillet</h3>
-                  <p className={"text-body-secondary pt-1.5 text-center md:text-left"}>Our locally sourced salmon served with a refreshing buckwheat summer salad.</p>
-                </div>
-              </div>
-
-              <div className={"my-[24px] h-[1px] bg-white opacity-15"}></div>
-
-              <div className={"flex flex-col md:flex-row md:gap-x-[62px]"}>
-                <div className={"flex"}>
-                  <picture>
-                    <source media="(max-width: 767px)" srcSet={"/images/homepage/beef-mobile.jpg"} />
-                    <source media="(max-width: 1023px)" srcSet={"/images/homepage/beef-desktop-tablet.jpg"} />
-                    <img src={"/images/homepage/beef-desktop-tablet.jpg"} alt="Beef" />
-                  </picture>
-                  <div className={"mt-4 hidden h-[1px] w-8 bg-[#9E7F66] md:block"} />
-                </div>
-
-                <div className={"mt-2 pt-[36px] md:pt-0 lg:w-[350px]"}>
-                  <h3 className={"text-heading-md text-center md:text-left"}>Rosemary Filet Mignon</h3>
-                  <p className={"text-body-secondary pt-1.5 text-center md:text-left"}>Our prime beef served to your taste with a delicious choice of seasonal sides.</p>
-                </div>
-              </div>
-
-              <div className={"my-[24px] h-[1px] bg-white opacity-15"}></div>
-
-              <div className={"flex flex-col md:flex-row md:gap-x-[62px]"}>
-                <div className={"flex"}>
-                  <picture>
-                    <source media="(max-width: 767px)" srcSet={"/images/homepage/chocolate-mobile.jpg"} />
-                    <source media="(max-width: 1023px)" srcSet={"/images/homepage/chocolate-desktop-tablet.jpg"} />
-                    <img src={"/images/homepage/chocolate-desktop-tablet.jpg"} className={""} alt="Chocolate" />
-                  </picture>
-                  <div className={"mt-4 hidden h-[1px] w-8 bg-[#9E7F66] md:block"} />
-                </div>
-
-                <div className={"pt-[36px] md:mt-2 md:pt-0 lg:w-[350px]"}>
-                  <h3 className={"text-heading-md text-center md:text-left"}>Summer Fruit Chocolate Mousse</h3>
-                  <p className={"text-body-secondary pt-1.5 text-center md:text-left"}>Creamy mousse combined with summer fruits and dark chocolate shavings.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <MenuSection />
 
         <section className={"bg-white pt-20 md:pt-0"}>
           <img src={"/images/patterns/pattern-curve-top-right.svg"} className={"absolute z-10 hidden translate-x-[-350px] md:block"} alt="Pattern" />
