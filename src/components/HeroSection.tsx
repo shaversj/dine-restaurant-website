@@ -23,7 +23,7 @@ export default function HeroSection() {
           </p>
 
           <Link href={"/booking"} className={"mt-[3.313rem] grid h-[4rem] w-[15.313rem] place-items-center border border-white hover:bg-white hover:text-black lg:mt-[2.5rem]"}>
-            <span className={"text-[1.063rem] leading-[1rem] font-semibold tracking-[0.156rem] uppercase"}>Book a table</span>
+            <span className={"text-[1.063rem] leading-[1rem] font-semibold tracking-[0.156rem] text-white uppercase"}>Book a table</span>
           </Link>
         </div>
       </div>
