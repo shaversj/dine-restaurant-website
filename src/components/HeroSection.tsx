@@ -12,7 +12,7 @@ export default function HeroSection() {
 
           <div
             className={
-              "pt-9 text-center text-[2rem] leading-[2.5rem] font-light tracking-[0.025rem] md:pt-[2.375rem] md:text-[3rem] md:leading-16 md:tracking-[--0.038rem] lg:w-full lg:pt-[9.563rem] lg:text-left lg:text-[5rem] lg:leading-[5rem] lg:tracking-[-0.063rem]"
+              "pt-9 text-center text-[2rem] leading-[2.5rem] font-light tracking-[0.025rem] text-white md:pt-[2.375rem] md:text-[3rem] md:leading-16 md:tracking-[--0.038rem] lg:w-full lg:pt-[9.563rem] lg:text-left lg:text-[5rem] lg:leading-[5rem] lg:tracking-[-0.063rem]"
             }
           >
             <h1>Exquisite dining</h1>
