@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Header() {
+export default function HeroSection() {
   return (
-    <header
+    <section
       className={"w-full bg-[url('/images/homepage/hero-bg-mobile.jpg')] bg-cover bg-no-repeat pb-[152px] md:bg-[url('/images/homepage/hero-bg-tablet.jpg')] md:pb-[216px] lg:h-[55.75rem] lg:bg-[url('/images/homepage/hero-bg-desktop.jpg')] lg:pb-0"}
     >
       <div className={"px-6 md:px-10 lg:pl-[10.313rem]"}>
@@ -27,6 +27,6 @@ export default function Header() {
           </Link>
         </div>
       </div>
-    </header>
+    </section>
   );
 }

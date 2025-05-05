@@ -13,7 +13,7 @@ export default function EventSection() {
         <picture>
           <source media="(max-width: 767px)" srcSet={eventImages[eventName as keyof typeof eventImages]["mobile"]} />
           <source media="(max-width: 1023px)" srcSet={eventImages[eventName as keyof typeof eventImages]["tablet"]} />
-          <img src={eventImages[eventName as keyof typeof eventImages]["desktop"]} className={"z-20 shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] md:mx-auto lg:mx-0"} alt="Family Gathering" />
+          <img src={eventImages[eventName as keyof typeof eventImages]["desktop"]} className={"z-20 mx-auto shadow-[0px_75px_100px_-50px_rgba(56,66,86,0.503223)] lg:mx-0"} alt="Family Gathering" />
         </picture>
 
         <div className={"flex flex-col-reverse items-center lg:w-[445px] lg:flex-col lg:items-start"}>
