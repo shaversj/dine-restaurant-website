@@ -1,5 +1,4 @@
-// import { UseFormRegister, FieldValues } from "react-hook-form";
-import { BookingFormData } from "@/app/booking/page";
+import { BookingFormData } from "@/components/BookingForm";
 
 type InputProps = {
   register?: any; // eslint-disable-line

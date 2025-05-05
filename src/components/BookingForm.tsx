@@ -35,6 +35,16 @@ const schema = yup.object({
   }),
 });
 
+export type BookingFormData = {
+  name: string;
+  email: string;
+  month: number;
+  day: number;
+  year: number;
+  hour: number;
+  minute: number;
+};
+
 export default function BookingForm() {
   const [numOfPeople, setNumOfPeople] = useState(4);
   const [selected, setSelected] = useState(options[0]);
